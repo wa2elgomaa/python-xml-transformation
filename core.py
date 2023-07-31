@@ -49,7 +49,7 @@ class XMLUpdator:
                     self.logger.log_message(
                         f"COPIED NON-XML FILE : {output_file_path}")
 
-            except Exception as e:
+            except any as e:
                 self.logger.log_message(f'ERROR IN FILE : {file_path}', e)
 
     def process_files(self, files_list=None):

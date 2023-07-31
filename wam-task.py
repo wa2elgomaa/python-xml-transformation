@@ -1,8 +1,9 @@
 from shutil import rmtree
 from argparse import ArgumentParser
 from sys import argv
-from watcher import Watcher
-from utils import create_folder, install
+# from watcher import Watcher
+from utils import create_folder, list_different_files
+from core import XMLUpdator
 
 
 def main():
@@ -34,7 +35,9 @@ def main():
         create_folder(output_folder)
 
     # init watcher
-    Watcher(input_folder, output_folder).run()
+    # Watcher(input_folder, output_folder).run()
+    files_list = list_different_files(input_folder, output_folder)
+    XMLUpdator(input_folder, output_folder).process_files(files_list)
 
 
 if __name__ == "__main__":
